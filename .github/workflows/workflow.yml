@@ -1,0 +1,16 @@
+name: Eslintrc Work
+on: {push}
+jobs:
+  verify_errors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        run: actions/checkout@v2
+      - name: Linter execution
+        run:  github/super-linter@v4
+        env:
+          DEFAULT_BRANCH: nodejs_example
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LINTER_RULES_PATH: /
+          JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
+          VALIDATE_JAVASCRIPT_ES: true
