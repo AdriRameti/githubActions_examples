@@ -1,11 +1,18 @@
-name: Eslintrc Work
+name: Version Node
 on: {push}
 jobs:
   verify_errors:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [10, 12]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Setting node version
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
       - name: Linter execution
         uses:  github/super-linter@v4
         env:
