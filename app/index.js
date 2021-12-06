@@ -1,7 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 const core = require('@actions/core');
 const github = require('@actions/github');
-const token = core.getInput('token');
+const token = "5092732839:AAGWv5pfe6-8WX4TQnEC4Tm3VpznBFKm2Pg"
 const bot = new TelegramBot(token, { polling: true });
 
 bot.onText(/\/echo (.+)/, (msg, match) => {
