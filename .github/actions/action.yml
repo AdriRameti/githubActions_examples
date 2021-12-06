@@ -1,0 +1,10 @@
+name: "TelegramBot"
+description: "Telegram Bot with github actions"
+inputs:
+  token:
+    description: "Token for telegram HTTP api"
+    required: true
+    default: ""
+runs:
+  using: "node16"
+  main: "main.js"

@@ -1,0 +1,14 @@
+name: Telegram Bot 
+on:
+  push:
+    branches: [send_telegram_action]
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v2
+      - name: Send alert
+        uses: ../actions
+        with:
+          token: ${{ secrets.token }}
